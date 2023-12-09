@@ -2,6 +2,9 @@ const express = require("express");
 const axios = require("axios");
 const app = express();
 const port = 3000;
+const cors = require("cors");
+
+app.use(cors());
 
 app.get("/swap", async (req, res) => {
   const accountAddress = req.query.accountAddress;
