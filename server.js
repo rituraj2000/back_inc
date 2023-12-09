@@ -5,14 +5,17 @@ const port = 3000;
 const cors = require("cors");
 require("dotenv").config();
 
-app.use(cors());
+const corsOptions = {
+  origin: "http://localhost:8080",
+};
+
+app.use(cors(corsOptions));
 
 app.get("/swap", async (req, res) => {
   const accountAddress = req.query.accountAddress;
   const srcCoinAddr = req.query.srcCoinAddr;
   const amt = req.query.amt;
   const url = "https://api.1inch.dev/swap/v5.2/56/swap";
-  console.log(req.query);
 
   const config = {
     headers: {
