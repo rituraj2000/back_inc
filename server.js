@@ -33,7 +33,7 @@ app.get("/swap", async (req, res) => {
     res.json(response.data);
   } catch (error) {
     console.error(error.response.data.description);
-    res.send(`Error : ${error.response.data.description}`);
+    res.json({ error: `${error.response.data.description}` });
   }
 });
 
