@@ -3,6 +3,7 @@ const axios = require("axios");
 const app = express();
 const port = 3000;
 const cors = require("cors");
+require("dotenv").config();
 
 app.use(cors());
 
@@ -15,7 +16,7 @@ app.get("/swap", async (req, res) => {
 
   const config = {
     headers: {
-      Authorization: "Bearer 4WyjmE36P9R1UQDLFrszynHOkM4d15mW",
+      Authorization: `Bearer ${process.env.AUTH_TOKEN}`,
     },
     params: {
       src: srcCoinAddr,
